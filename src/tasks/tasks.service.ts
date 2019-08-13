@@ -15,7 +15,7 @@ export class TasksService {
     const { title, description } = createTaskDto;
 
     const task: Task = {
-      id: uuid(),
+      id: uuid().toString(),
       title,
       description,
       status: TaskStatus.OPEN,
@@ -24,5 +24,9 @@ export class TasksService {
     this.tasks.push(task);
 
     return task;
+  }
+
+  getTaskById(taskId: string): Task {
+    return this.tasks.find(({ id }) => taskId === id);
   }
 }

@@ -48,8 +48,8 @@ export class TasksService {
   }
 
   updateTaskStatus(taskId: string, status: TaskStatus): Task {
-    const found = this.getTaskById(taskId)
-    found.status = status
-    return found
+    const task = this.getTaskById(taskId)
+    task.status = status
+    return task
   }
 }
